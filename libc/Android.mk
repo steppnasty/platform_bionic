@@ -276,8 +276,12 @@ libc_common_src_files := \
 	bionic/sha1.c \
 	bionic/stubs.c \
 	bionic/system_properties.c \
+	bionic/tdelete.c \
+	bionic/tdestroy.c \
 	bionic/time64.c \
+	bionic/tfind.c \
 	bionic/thread_atexit.c \
+	bionic/tsearch.c \
 	bionic/utime.c \
 	bionic/utmp.c \
 	netbsd/gethnamaddr.c \
