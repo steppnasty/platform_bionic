@@ -197,6 +197,7 @@
 #define __NR_ioprio_set                   (__NR_SYSCALL_BASE + 314)
 #define __NR_ioprio_get                   (__NR_SYSCALL_BASE + 315)
 #define __NR_futex                        (__NR_SYSCALL_BASE + 240)
+#define __NR_unshare                      (__NR_SYSCALL_BASE + 337)
 #define __NR_epoll_create                 (__NR_SYSCALL_BASE + 250)
 #define __NR_epoll_ctl                    (__NR_SYSCALL_BASE + 251)
 #define __NR_epoll_wait                   (__NR_SYSCALL_BASE + 252)
@@ -314,6 +315,7 @@
 #define __NR_unlinkat                     (__NR_SYSCALL_BASE + 301)
 #define __NR_renameat                     (__NR_SYSCALL_BASE + 302)
 #define __NR_fchmodat                     (__NR_SYSCALL_BASE + 306)
+#define __NR_unshare                      (__NR_SYSCALL_BASE + 310)
 #define __NR_getcpu                       (__NR_SYSCALL_BASE + 318)
 #define __NR_utimensat                    (__NR_SYSCALL_BASE + 320)
 #define __NR_eventfd2                     (__NR_SYSCALL_BASE + 328)
@@ -444,6 +446,10 @@
 #define __NR_utimensat                    (__NR_SYSCALL_BASE + 316)
 #define __NR_eventfd2                     (__NR_SYSCALL_BASE + 325)
 #define __NR_pipe2                        (__NR_SYSCALL_BASE + 328)
+#endif
+
+#if defined(__SH3__) || defined(__SH4__) 
+#define __NR_unshare                      (__NR_SYSCALL_BASE + 310)
 #endif
 
 #endif
