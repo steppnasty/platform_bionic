@@ -492,6 +492,14 @@ ifeq ($(TARGET_ARCH),arm)
       libc_common_cflags += -DPLDSIZE=$(TARGET_SCORPION_BIONIC_PLDSIZE)
     endif
   endif
+  #
+  # Define HAVE_32_BYTE_CACHE_LINES to indicate to C
+  # library it should use to 32-byte version of memcpy, and not
+  # the 64-byte version.
+  #
+  ifeq ($(ARCH_ARM_HAVE_32_BYTE_CACHE_LINES),true)
+    libc_common_cflags += -DHAVE_32_BYTE_CACHE_LINE
+  endif
 else # !arm
   ifeq ($(TARGET_ARCH),x86)
     libc_crt_target_cflags :=
