@@ -346,6 +346,7 @@ libc_common_src_files += \
 	arch-arm/bionic/__get_sp.S \
 	arch-arm/bionic/_exit_with_stack_teardown.S \
 	arch-arm/bionic/_setjmp.S \
+	arch-arm/bionic/abort_arm.S \
 	arch-arm/bionic/atomics_arm.S \
 	arch-arm/bionic/clone.S \
 	arch-arm/bionic/eabi.c \
@@ -469,6 +470,13 @@ libc_common_cflags += \
 
 ifeq ($(strip $(DEBUG_BIONIC_LIBC)),true)
   libc_common_cflags += -DDEBUG
+endif
+
+# To customize dlmalloc's alignment, set BOARD_MALLOC_ALIGNMENT in
+# the appropriate BoardConfig.mk file.
+#
+ifneq ($(BOARD_MALLOC_ALIGNMENT),)
+  libc_common_cflags += -DMALLOC_ALIGNMENT=$(BOARD_MALLOC_ALIGNMENT)
 endif
 
 ifeq ($(TARGET_ARCH),arm)
@@ -656,9 +664,6 @@ LOCAL_SRC_FILES := \
 
 LOCAL_CFLAGS := $(libc_common_cflags) \
                 -DLIBC_STATIC
-ifneq ($(USE_MALLOC_ALIGNMENT),)
-    LOCAL_CFLAGS += -DMALLOC_ALIGNMENT=$(USE_MALLOC_ALIGNMENT)
-endif
 LOCAL_C_INCLUDES := $(libc_common_c_includes)
 LOCAL_MODULE := libc
 LOCAL_WHOLE_STATIC_LIBRARIES := libc_common
@@ -673,9 +678,6 @@ include $(BUILD_STATIC_LIBRARY)
 include $(CLEAR_VARS)
 
 LOCAL_CFLAGS := $(libc_common_cflags)
-ifneq ($(USE_MALLOC_ALIGNMENT),)
-    LOCAL_CFLAGS += -DMALLOC_ALIGNMENT=$(USE_MALLOC_ALIGNMENT)
-endif
 LOCAL_C_INCLUDES := $(libc_common_c_includes)
 
 LOCAL_SRC_FILES := \
@@ -718,9 +720,6 @@ include $(CLEAR_VARS)
 LOCAL_CFLAGS := \
 	$(libc_common_cflags) \
 	-DMALLOC_LEAK_CHECK
-ifneq ($(USE_MALLOC_ALIGNMENT),)
-    LOCAL_CFLAGS += -DMALLOC_ALIGNMENT=$(USE_MALLOC_ALIGNMENT)
-endif
 
 LOCAL_C_INCLUDES := $(libc_common_c_includes)
 
