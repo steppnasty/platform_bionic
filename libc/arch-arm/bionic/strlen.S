@@ -29,6 +29,7 @@
    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
    Written by Dave Gilbert <david.gilbert@linaro.org>
+   Adapted to Bionic by Bernhard Rosenkraenzer <bernhard.rosenkranzer@linaro.org>
 
    This strlen routine is optimised on a Cortex-A9 and should work on
    all ARMv7 processors.   This routine is reasonably fast for short
@@ -40,6 +41,9 @@
 
 
 @ this lets us check a flag in a 00/ff byte easily in either endianness
+
+#include <machine/asm.h>
+
 #ifdef __ARMEB__
 #define CHARTSTMASK(c) 1<<(31-(c*8))
 #else
@@ -51,11 +55,8 @@
 	.arch armv7-a
 
 	.thumb_func
-	.align 2
 	.p2align 4,,15
-	.global strlen
-	.type strlen,%function
-strlen:
+ENTRY(strlen)
 	@ r0 = string
 	@ returns count of bytes in string not including terminator
 	mov	r1, r0
@@ -109,3 +110,4 @@ strlenendtmp:
 	subs	r0, r0, #1
 	pop	{ r4, r6 }
 	bx	lr
+END(strlen)
