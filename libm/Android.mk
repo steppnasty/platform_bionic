@@ -155,6 +155,7 @@ libm_common_cflags :=
 
 ifeq ($(TARGET_ARCH),arm)
   libm_common_src_files += \
+	arm/e_pow.S \
 	arm/fenv.c \
 	src/e_ldexpf.c \
 	src/s_scalbln.c \
@@ -201,6 +202,8 @@ LOCAL_ARM_MODE := arm
 LOCAL_C_INCLUDES += $(libm_common_includes)
 LOCAL_CFLAGS := $(libm_common_cflags)
 
+LOCAL_CFLAGS:= $(libm_common_cflags)
+
 LOCAL_MODULE:= libm
 
 LOCAL_SYSTEM_SHARED_LIBRARIES := libc
@@ -219,6 +222,8 @@ LOCAL_ARM_MODE := arm
 
 LOCAL_C_INCLUDES += $(libm_common_includes)
 LOCAL_CFLAGS := $(libm_common_cflags)
+
+LOCAL_CFLAGS:= $(libm_common_cflags)
 
 LOCAL_MODULE:= libm
 
