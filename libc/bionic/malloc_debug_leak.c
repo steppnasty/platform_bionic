@@ -77,7 +77,9 @@ extern const MallocDebug* __libc_malloc_dispatch;
 
 static int gTrapOnError = 1;
 
-#define MALLOC_ALIGNMENT    8
+#ifndef MALLOC_ALIGNMENT
+#define MALLOC_ALIGNMENT    ((size_t)8U)
+#endif
 #define GUARD               0x48151642
 #define DEBUG               0
 
