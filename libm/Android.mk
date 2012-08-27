@@ -164,6 +164,7 @@ ifeq ($(TARGET_ARCH),arm)
 	src/e_sqrtf.c
 
   libm_common_includes = $(LOCAL_PATH)/arm
+  libm_common_cflags += -fno-if-conversion
 endif
 
 ifeq ($(TARGET_OS)-$(TARGET_ARCH),linux-x86)

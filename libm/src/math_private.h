@@ -257,11 +257,11 @@ cpackl(long double x, long double y)
 #define __ieee754_ldexpf ldexpf
 
 /* fdlibm kernel function */
-int	__ieee754_rem_pio2(double,double*);
-double	__kernel_sin(double,double,int);
-double	__kernel_cos(double,double);
-double	__kernel_tan(double,double,int);
-int	__kernel_rem_pio2(double*,double*,int,int,int,const int*);
+int    __ieee754_rem_pio2(double,double*) __attribute__((pcs("aapcs-vfp")));
+double __kernel_sin(double,double,int) __attribute__((pcs("aapcs-vfp")));
+double __kernel_cos(double,double) __attribute__((pcs("aapcs-vfp")));
+double __kernel_tan(double,double,int) __attribute__((pcs("aapcs-vfp")));
+int    __kernel_rem_pio2(double*,double*,int,int,int,const int*) __attribute__((pcs("aapcs-vfp")));
 
 /* float versions of fdlibm kernel functions */
 int	__ieee754_rem_pio2f(float,float*);
