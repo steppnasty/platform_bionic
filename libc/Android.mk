@@ -137,7 +137,6 @@ libc_common_src_files := \
 	stdio/vsscanf.c \
 	stdio/wbuf.c \
 	stdio/wsetup.c \
-	stdlib/_rand48.c \
 	stdlib/assert.c \
 	stdlib/atexit.c \
 	stdlib/atoi.c \
@@ -148,19 +147,14 @@ libc_common_src_files := \
 	stdlib/div.c \
 	stdlib/exit.c \
 	stdlib/getenv.c \
-	stdlib/jrand48.c \
 	stdlib/ldiv.c \
 	stdlib/lldiv.c \
 	stdlib/locale.c \
-	stdlib/lrand48.c \
-	stdlib/mrand48.c \
-	stdlib/nrand48.c \
 	stdlib/putenv.c \
 	stdlib/qsort.c \
 	stdlib/seed48.c \
 	stdlib/setenv.c \
 	stdlib/setjmperr.c \
-	stdlib/srand48.c \
 	stdlib/strntoimax.c \
 	stdlib/strntoumax.c \
 	stdlib/strtod.c \
@@ -250,8 +244,6 @@ libc_common_src_files := \
 	bionic/clearenv.c \
 	bionic/dirname.c \
 	bionic/dirname_r.c \
-	bionic/drand48.c \
-	bionic/erand48.c \
 	bionic/err.c \
 	bionic/fdprintf.c \
 	bionic/fork.c \
@@ -322,6 +314,14 @@ libc_upstream_netbsd_src_files := \
 	upstream-netbsd/libc/regex/regfree.c \
 	upstream-netbsd/libc/stdio/getdelim.c \
 	upstream-netbsd/libc/stdio/getline.c \
+	upstream-netbsd/libc/stdlib/drand48.c \
+	upstream-netbsd/libc/stdlib/erand48.c \
+	upstream-netbsd/libc/stdlib/jrand48.c \
+	upstream-netbsd/libc/stdlib/lrand48.c \
+	upstream-netbsd/libc/stdlib/mrand48.c \
+	upstream-netbsd/libc/stdlib/nrand48.c \
+	upstream-netbsd/libc/stdlib/_rand48.c \
+	upstream-netbsd/libc/stdlib/srand48.c \
 	upstream-netbsd/libc/stdlib/tdelete.c \
 	upstream-netbsd/libc/stdlib/tfind.c \
 	upstream-netbsd/libc/stdlib/tsearch.c \
