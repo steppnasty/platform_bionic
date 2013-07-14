@@ -17,6 +17,8 @@
 
 #define _LINUX_CAPABILITY_VERSION 0x19980330
 
+#define _LINUX_CAPABILITY_VERSION_3 0x20080522
+
 typedef struct __user_cap_header_struct {
  __u32 version;
  int pid;
@@ -91,5 +93,9 @@ typedef struct __user_cap_data_struct {
 #define CAP_AUDIT_WRITE 29
 
 #define CAP_AUDIT_CONTROL 30
+
+#define CAP_TO_INDEX(x) ((x) >> 5)
+
+#define CAP_TO_MASK(x) (1 << ((x) & 31))
 
 #endif
