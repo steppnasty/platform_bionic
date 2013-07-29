@@ -144,6 +144,7 @@
 #define __NR_stat64                       (__NR_SYSCALL_BASE + 195)
 #define __NR_lstat64                      (__NR_SYSCALL_BASE + 196)
 #define __NR_getcwd                       (__NR_SYSCALL_BASE + 183)
+#define __NR_faccessat                    (__NR_SYSCALL_BASE + 334)
 #define __NR_setxattr                     (__NR_SYSCALL_BASE + 226)
 #define __NR_lsetxattr                    (__NR_SYSCALL_BASE + 227)
 #define __NR_getxattr                     (__NR_SYSCALL_BASE + 229)

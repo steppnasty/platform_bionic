@@ -333,6 +333,7 @@
 #define __NR_mbind (__NR_SYSCALL_BASE+319)
 #define __NR_get_mempolicy (__NR_SYSCALL_BASE+320)
 #define __NR_set_mempolicy (__NR_SYSCALL_BASE+321)
+#define __NR_faccessat (__NR_SYSCALL_BASE+334)
 
 #define __ARM_NR_BASE (__NR_SYSCALL_BASE+0x0f0000)
 #define __ARM_NR_breakpoint (__ARM_NR_BASE+1)
