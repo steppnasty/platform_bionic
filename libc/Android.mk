@@ -312,7 +312,6 @@ libc_upstream_netbsd_src_files := \
 	upstream-netbsd/libc/regex/regexec.c \
 	upstream-netbsd/libc/regex/regfree.c \
 	upstream-netbsd/libc/stdio/getdelim.c \
-	upstream-netbsd/libc/stdio/getline.c \
 	upstream-netbsd/libc/stdlib/drand48.c \
 	upstream-netbsd/libc/stdlib/erand48.c \
 	upstream-netbsd/libc/stdlib/jrand48.c \
