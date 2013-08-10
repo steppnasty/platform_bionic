@@ -39,6 +39,8 @@
 #include <sys/socket.h>
 #include <sys/un.h>
 
+extern int tgkill(int tgid, int tid, int sig);
+
 void notify_gdb_of_libraries();
 
 #define  RETRY_ON_EINTR(ret,cond) \
