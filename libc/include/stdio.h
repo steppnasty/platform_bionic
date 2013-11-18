@@ -240,8 +240,6 @@ off_t	 ftello(FILE *);
 size_t	 fwrite(const void *, size_t, size_t, FILE *);
 int	 getc(FILE *);
 int	 getchar(void);
-ssize_t	 getdelim(char ** __restrict, size_t * __restrict, int,
-	    FILE * __restrict);
 char	*gets(char *);
 #if __BSD_VISIBLE && !defined(__SYS_ERRLIST)
 #define __SYS_ERRLIST
@@ -449,8 +447,14 @@ extern	int __isthreaded;
  * fdprintf is a better name, and some programs that use fdprintf use a
  * #define fdprintf dprintf for compatibility
  */
-int fdprintf(int, const char*, ...);
-int vfdprintf(int, const char*, __va_list);
+__BEGIN_DECLS
+int fdprintf(int, const char*, ...)
+		__attribute__((__format__ (printf, 2, 3)))
+		__attribute__((__nonnull__ (2)));
+int vfdprintf(int, const char*, __va_list)
+		__attribute__((__format__ (printf, 2, 0)))
+		__attribute__((__nonnull__ (2)));
+__END_DECLS
 #endif /* _GNU_SOURCE */
 
 #endif /* _STDIO_H_ */
